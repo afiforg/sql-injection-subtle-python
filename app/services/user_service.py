@@ -14,5 +14,5 @@ class UserService:
     def search(self, username: str) -> List[User]:
         return self._repo.find_by_username(username)
 
-    def list_sorted(self, sort_column: str, sort_dir: str) -> List[User]:
-        return self._repo.find_with_sort(sort_column, sort_dir)
+    def list_sorted(self, sort: str, order: str) -> List[User]:
+        return self._repo.find_with_sort(sort, order)

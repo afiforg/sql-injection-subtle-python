@@ -26,8 +26,8 @@ class UserRepository:
         rows = result.fetchall()
         return [User(id=row[0], username=row[1], email=row[2]) for row in rows]
 
-    def find_with_sort(self, sort_column: str, sort_dir: str) -> List[User]:
-        order_clause = order_by(sort_column, sort_dir)
+    def find_with_sort(self, sort: str, order: str) -> List[User]:
+        order_clause = order_by(sort, order)
         query = f"SELECT id, username, email FROM users {order_clause}"
         result = self._conn.execute(query)
         rows = result.fetchall()
